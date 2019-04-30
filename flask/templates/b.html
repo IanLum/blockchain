@@ -1,0 +1,16 @@
+<script src='//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'></script>
+<script type=text/javascript>
+       $(function(){
+           $('a#mineBlock').click(function(){
+               $.getJSON('/mineBlock',
+                   function(data){}
+               );
+           });
+       });
+</script>
+<form>
+    <a href=# id=mineBlock><button class=‘btn btn-default’>Mine Block</button></a>
+</form>
+{% for i in chain %}
+    <p>{{i}}</p>
+{% endfor %}

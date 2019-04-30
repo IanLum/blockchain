@@ -23,7 +23,7 @@ class Blockchain():
         self.chain.append(block)
 
     def newBlock(self):
-        newblock =  Block(self.chain[-1].id, 4, len(self.chain))
+        newblock =  Block(self.chain[-1].id, 4, self.chain[-1].index+1)
 
         nonce = 0
         mined = False
@@ -39,13 +39,12 @@ class Blockchain():
         self.addBlock(newblock)
 
 chain0 = Blockchain()
+chainFile = open('chain.txt','w')
+
+
+for i in range(15):
 # while True:
-#     input('b: ')
-#     chain0.newBlock()
-#     print(vars(chain0.chain[-1]))
-
-for i in range(5):
+    chainFile.write(str(vars(chain0.chain[-1])) + '\n')
+    print(vars(chain0.chain[-1]))
+    # input()
     chain0.newBlock()
-
-for i in chain0.chain:
-    print(vars(i))
